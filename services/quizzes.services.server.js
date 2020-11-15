@@ -1,15 +1,16 @@
-// let quizzes = require('./quizzes.json')
 
 
 function service(app) {
 // module.exports = (app) => {
 
-    let quizzes = [
-        {_id: "001", title: "Quiz 1"},
-        {_id: "002", title: "Quiz 2"},
-        {_id: "003", title: "Quiz 3"},
-        {_id: "004", title: "Quiz 4"}
-    ]
+    let quizzes = require('./quizzes.json')
+
+    // let quizzes = [
+    //     {_id: "001", title: "Quiz 1"},
+    //     {_id: "002", title: "Quiz 2"},
+    //     {_id: "003", title: "Quiz 3"},
+    //     {_id: "004", title: "Quiz 4"}
+    // ]
 
     const findAllQuizzes = (req, res) => {
         res.send(quizzes);
