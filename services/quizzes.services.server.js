@@ -33,10 +33,18 @@ function service(app) {
         res.sendStatus(200);
     }
 
+    const updateQuiz = (req, res) => {
+        const qid = req.params.qid;
+        const modifications = req.body;
+        quizzes = quizzes.map(quiz => quiz._id === qid ? modifications : quiz);
+        res.sendStatus(200);
+    }
+
     app.get("/quizzes", findAllQuizzes);
     app.get("/quizzes/:qid", findQuizById);
     app.post("/quizzes", createQuiz);
-    app.delete("/quizzes/:qid", deleteQuiz)
+    app.delete("/quizzes/:qid", deleteQuiz);
+    app.put("/quizzes/:qid", updateQuiz);
 
 }
 
