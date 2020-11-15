@@ -9,9 +9,6 @@ module.exports = (app) => {
         {_id: "05", question: "Why?", quizId: "003"}
     ]
 
-    app.get("/", (req, res) => {
-        res.send("Hello, World!");
-    })
 
     app.get("/quizzes/:qid/questions", (req, res) => {
         const quizId = req.params["qid"];

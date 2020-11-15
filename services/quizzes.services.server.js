@@ -4,41 +4,41 @@
 function service(app) {
 // module.exports = (app) => {
 
-    const quizzes = [
+    let quizzes = [
         {_id: "001", title: "Quiz 1"},
         {_id: "002", title: "Quiz 2"},
         {_id: "003", title: "Quiz 3"},
         {_id: "004", title: "Quiz 4"}
     ]
 
-
-    app.get("/quizzes", (req, res) => {
+    const findAllQuizzes = (req, res) => {
         res.send(quizzes);
-    })
+    }
 
-    app.get("/quizzes/:qid", (req, res) => {
+    const findQuizById = (req, res) => {
         const quizId = req.params["qid"];
         const quiz = quizzes.find(quiz => quiz._id === quizId);
         res.send(quiz);
-    })
+    }
+
+    const createQuiz = (req, res) => {
+        const quiz = {_id: (new Date()).getMilliseconds().toString(), title: "New Quiz"};
+        quizzes.push(quiz);
+        res.send(quiz)
+    }
+
+    const deleteQuiz = (req, res) => {
+        const qid = req.params.qid;
+        quizzes = quizzes.filter(quiz => quiz._id !== qid);
+        res.sendStatus(200);
+    }
+
+    app.get("/quizzes", findAllQuizzes);
+    app.get("/quizzes/:qid", findQuizById);
+    app.post("/quizzes", createQuiz);
+    app.delete("/quizzes/:qid", deleteQuiz)
 
 }
-// const findAllQuizzes = () => quizzes
-//
-//
-//
-// const findQuizById = (quizId) =>
-//     quizzes.find(quiz => quiz._id === quizId)
-
-
-
-
 
 module.exports = service
 
-// module.exports = {
-//     service
-//     // ,
-//     // findAllQuizzes,
-//     // findQuizById
-// }
