@@ -1,7 +1,8 @@
 // let quizzes = require('./quizzes.json')
 
 
-function service(app){
+function service(app) {
+// module.exports = (app) => {
 
     const quizzes = [
         {_id: "001", title: "Quiz 1"},
@@ -33,11 +34,11 @@ function service(app){
 
 
 
+module.exports = service
 
-
-module.exports = {
-    service
-    // ,
-    // findAllQuizzes,
-    // findQuizById
-}
+// module.exports = {
+//     service
+//     // ,
+//     // findAllQuizzes,
+//     // findQuizById
+// }
