@@ -25,4 +25,5 @@ module.exports = (app) => {
 
 
     app.get("/questions", findAllQuestions);
+    app.get("/quizzes/:qid/questions", );
 }
