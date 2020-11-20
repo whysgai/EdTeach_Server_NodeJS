@@ -3,7 +3,7 @@
 function service(app) {
 // module.exports = (app) => {
 
-    let quizzes = require('./quizzes.json')
+    let quizzes = require('../models/quizzes.json')
 
     // let quizzes = [
     //     {_id: "001", title: "Quiz 1"},

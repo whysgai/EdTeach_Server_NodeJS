@@ -2,7 +2,7 @@
 
 module.exports = (app) => {
 
-    let questions = require('./questions.json')
+    let questions = require('../models/questions.json')
 
     // const questions = [
     //     {_id: "01", question: "How old are you?", quizId: "001"},
