@@ -1,8 +1,8 @@
-
+const questionService = require("../services/questions.service");
 
 module.exports = (app) => {
 
-    let questions = require('../models/questions.json')
+    // let questions = require('../models/questions.json')
 
     // const questions = [
     //     {_id: "01", question: "How old are you?", quizId: "001"},
@@ -14,7 +14,11 @@ module.exports = (app) => {
 
 
     const findAllQuestions = (req, res) => {
-        res.send(questions);
+        res.send(questionService.findAllQuestions());
+    }
+
+    const findQuestionsForQuiz = (req, res) => {
+        res.send(questionService.findQuestionsForQuiz(req.params['qid']))
     }
 
     // app.get("/quizzes/:qid/questions", (req, res) => {
@@ -25,5 +29,5 @@ module.exports = (app) => {
 
 
     app.get("/questions", findAllQuestions);
-    app.get("/quizzes/:qid/questions", );
+    app.get("/quizzes/:qid/questions", findQuestionsForQuiz);
 }

@@ -5,8 +5,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-const quizService = require("./services/quizzes.services.server")
+const quizService = require("./controllers/quizzes.controller")
 quizService(app);
-require("./services/questions.services.server")(app);
+require("./controllers/questions.controller")(app);
 
 app.listen(4201);
