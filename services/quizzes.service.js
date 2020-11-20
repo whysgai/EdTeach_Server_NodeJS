@@ -5,7 +5,7 @@ const findAllQuizzes = () => {
 }
 
 const findQuizById = (qid) => {
-    const quiz = quizzes.find(quiz => quiz._id === quizId);
+    const quiz = quizzes.find(quiz => quiz._id === qid);
     return quiz;
 }
 
