@@ -1,6 +1,5 @@
 const quizzesService = require("../services/quizzes.service");
 
-
 module.exports = (app) => {
 
     const findAllQuizzes = (req, res) => {

@@ -4,7 +4,6 @@ const findAllQuestions = (req, res) => {
     return questions;
 }
 
-
 const findQuestionsForQuiz = (qid) => {
     return questions.filter(question => question.quizId === qid);
 }
