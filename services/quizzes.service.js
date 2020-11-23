@@ -19,10 +19,7 @@ const createQuiz = () => {
     // return quiz;
 }
 
-const deleteQuiz = (qid) => {
-    quizzes = quizzes.filter(quiz => quiz._id !== qid);
-    return 200;
-}
+const deleteQuiz = (qid) => quizModel.removeQuiz(qid);
 
 const updateQuiz = (qid, deltaQuiz) => {
     quizzes = quizzes.map(quiz => quiz._id === qid ? deltaQuiz : quiz);

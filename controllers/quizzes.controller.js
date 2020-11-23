@@ -15,11 +15,11 @@ module.exports = (app) => {
     const createQuiz = (req, res) => {
         quizzesService.createQuiz(req.body.quiz)
             .then(actualQuiz => res.send(actualQuiz))
-
     }
 
     const deleteQuiz = (req, res) => {
-        res.send(quizzesService.deleteQuiz(req.params["qid"]));
+        quizzesService.deleteQuiz(req.params["qid"])
+            .then(status => res.send(status))
     }
 
     const updateQuiz = (req, res) => {

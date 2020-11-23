@@ -11,9 +11,13 @@ const findQuizById = (qid) =>
 const createQuiz = (newQuiz) =>
     quizModel.create(newQuiz)
 
+const removeQuiz = (qid) =>
+    quizModel.remove({_id: qid})
+
 module.exports = {
     findAllQuizzes,
     findQuizById,
-    createQuiz
+    createQuiz,
+    removeQuiz
 }
 
