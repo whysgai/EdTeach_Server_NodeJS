@@ -3,11 +3,13 @@ const quizzesService = require("../services/quizzes.service");
 module.exports = (app) => {
 
     const findAllQuizzes = (req, res) => {
-        res.send(quizzesService.findAllQuizzes());
+        quizzesService.findAllQuizzes()
+            .then(quizzes => res.send(quizzes));
     }
 
     const findQuizById = (req, res) => {
-        res.send(quizzesService.findQuizById(req.params["qid"]));
+        quizzesService.findQuizById(req.params.qid)
+            .then(quiz => res.send(quiz))
     }
 
     const createQuiz = (req, res) => {
