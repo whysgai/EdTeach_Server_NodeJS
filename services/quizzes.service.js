@@ -12,9 +12,11 @@ const findQuizById = (qid) => quizModel.findQuizById(qid);
     // return quiz;
 
 const createQuiz = () => {
-    const quiz = {_id: (new Date()).getMilliseconds().toString(), title: "New Quiz"};
-    quizzes.push(quiz);
-    return quiz;
+    // const quiz = {_id: (new Date()).getMilliseconds().toString(), title: "New Quiz"};
+    const quiz = {title: "New Quiz"};
+    return quizModel.createQuiz(quiz);
+    // quizzes.push(quiz);
+    // return quiz;
 }
 
 const deleteQuiz = (qid) => {

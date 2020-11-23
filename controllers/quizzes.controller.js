@@ -13,7 +13,9 @@ module.exports = (app) => {
     }
 
     const createQuiz = (req, res) => {
-        res.send(quizzesService.createQuiz());
+        quizzesService.createQuiz(req.body.quiz)
+            .then(actualQuiz => res.send(actualQuiz))
+
     }
 
     const deleteQuiz = (req, res) => {

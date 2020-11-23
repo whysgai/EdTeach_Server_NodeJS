@@ -6,10 +6,14 @@ const findAllQuizzes = () =>
     quizModel.find()
 
 const findQuizById = (qid) =>
-    quizModel.find({_id: qid})
+    quizModel.findById(qid)
+
+const createQuiz = (newQuiz) =>
+    quizModel.create(newQuiz)
 
 module.exports = {
     findAllQuizzes,
-    findQuizById
+    findQuizById,
+    createQuiz
 }
 
