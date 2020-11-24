@@ -23,7 +23,9 @@ module.exports = (app) => {
     }
 
     const updateQuiz = (req, res) => {
-        res.sendStatus(quizzesService.updateQuiz(req.params['qid'], req.body));
+        quizzesService.updateQuiz(req.params['qid'], req.body)
+            .then(status => res.send(status));
+
     }
 
     app.get("/quizzes", findAllQuizzes);

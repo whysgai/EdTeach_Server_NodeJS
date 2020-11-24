@@ -22,8 +22,7 @@ const createQuiz = () => {
 const deleteQuiz = (qid) => quizModel.removeQuiz(qid);
 
 const updateQuiz = (qid, deltaQuiz) => {
-    quizzes = quizzes.map(quiz => quiz._id === qid ? deltaQuiz : quiz);
-    return 200;
+    return quizModel.updateQuiz(qid, deltaQuiz);
 }
 
 module.exports = {
