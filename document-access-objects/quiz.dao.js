@@ -1,8 +1,8 @@
 const quizModel = require('../models/quizzes/quiz.model')
 
-const findAllQuizzes = () => quizzesModel.find()
+const findAllQuizzes = () => quizModel.find()
 
-const findQuizById = (quizId) => quizzesModel.findById(quizId)
+const findQuizById = (quizId) => quizModel.findById(quizId)
 
 const createQuiz = (newQuiz) => quizModel.create(newQuiz);
 

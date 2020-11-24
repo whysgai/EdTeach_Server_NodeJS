@@ -1,9 +1,10 @@
-let questions = require('../models/questions.json')
-const questionModel = require("../models/questions/question.model")
+let questions = require('../models/questions.json');
+const questionModel = require("../models/questions/question.model");
+const questionDao = require("../document-access-objects/question.dao");
 
-const findAllQuestions = () => questionModel.findAllQuestions();
+const findAllQuestions = () => questionDao.findAllQuestions();
 
-const findQuestionsForQuiz = (qid) => questionModel.findQuestionsForQuiz(qid);
+const findQuestionsForQuiz = (qid) => questionDao.findQuestionsForQuiz(qid);
 
 module.exports = {
     findAllQuestions,
