@@ -2,8 +2,11 @@ const mongoose = require("mongoose");
 const questionSchema = require("./question.schema")
 const questionModel = mongoose.model("QuestionModel", questionSchema);
 
-const findAllQuestion = () => questionModel.find();
+const findAllQuestions = () => questionModel.find();
+
+const findQuestionsForQuiz = (qid) => questionModel.find({quizId: qid});
 
 module.exports = {
-    findAllQuestion
+    findAllQuestions,
+    findQuestionsForQuiz
 }

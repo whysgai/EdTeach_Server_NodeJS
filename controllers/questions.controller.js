@@ -3,11 +3,15 @@ const questionService = require("../services/questions.service");
 module.exports = (app) => {
 
     const findAllQuestions = (req, res) => {
-        res.send(questionService.findAllQuestions());
+        questionService.findAllQuestions()
+            .then(questions => res.send(questions))
+
     }
 
     const findQuestionsForQuiz = (req, res) => {
-        res.send(questionService.findQuestionsForQuiz(req.params['qid']))
+        questionService.findQuestionsForQuiz(req.params['qid'])
+            .then(questions => res.send(questions));
+
     }
 
     app.get("/questions", findAllQuestions);
