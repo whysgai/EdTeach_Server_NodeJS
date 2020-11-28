@@ -4,7 +4,7 @@ module.exports = (app) => {
 
     const findAllQuestions = (req, res) => {
         questionService.findAllQuestions()
-            .then(questions => res.send(questions))
+            .then(questions => res.send(questions));
 
     }
 
