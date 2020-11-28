@@ -1,4 +1,4 @@
-const attemptService = require("../services/attempt.service");
+const attemptService = require("../services/attempts.service");
 
 module.exports = (app) => {
 
