@@ -2,7 +2,7 @@ const quizModel = require('../models/quizzes/quiz.model')
 
 const findAllQuizzes = () => quizModel.find()
 
-const findQuizById = (quizId) => quizModel.findById(quizId).populate("questions").exec()
+const findQuizById = (qid) => quizModel.findById(qid).populate("questions").exec()
 
 const createQuiz = (newQuiz) => quizModel.create(newQuiz);
 
