@@ -6,7 +6,10 @@ const findAllQuestions = () => questionDao.findAllQuestions();
 
 const findQuestionsForQuiz = (qid) => questionDao.findQuestionsForQuiz(qid);
 
+const createQuestion = (question) => questionDao.createQuestion(question);
+
 module.exports = {
     findAllQuestions,
-    findQuestionsForQuiz
+    findQuestionsForQuiz,
+    createQuestion
 }
