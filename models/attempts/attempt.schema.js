@@ -3,8 +3,11 @@ const questionSchema = require('../questions/question.schema');
 
 const attemptSchema = mongoose.Schema({
     score: Number,
-    quiz: {type: mongoose.Schema.Types.ObjectId, ref: 'QuizModel'},
-    answers: [questionSchema]
+    quizId: String,
+    answers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "QuestionModel"
+    }]
 }, {collection: 'quizAttempts'});
 
 module.exports = attemptSchema;
