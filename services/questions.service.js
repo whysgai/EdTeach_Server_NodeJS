@@ -4,11 +4,7 @@ const questionDao = require("../document-access-objects/question.dao");
 
 const findAllQuestions = () => questionDao.findAllQuestions();
 
-const findQuestionsForQuiz = (qid) => {
-    let questions = questionDao.findQuestionsForQuiz(qid);
-    console.log("Questions in Service:", questions);
-    return questions;
-}
+const findQuestionsForQuiz = (qid) => questionDao.findQuestionsForQuiz(qid);
 
 module.exports = {
     findAllQuestions,
