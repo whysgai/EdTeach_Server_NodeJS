@@ -1,13 +1,13 @@
 const attemptModel = require('../models/attempts/attempt.model');
 
-const scoreQuiz = (questions) => {
+const scoreQuiz = (attempt) => {
     let countCorrect = 0
-    questions.forEach((question) => {
+    attempt.forEach((question) => {
         if(question.answer === question.correct) {
             countCorrect++;
         }
     })
-    return (countCorrect / questions.length) * 100;
+    return (countCorrect / attempt.length) * 100;
 }
 
 // const scoreQuiz = (questions) => {
@@ -19,11 +19,10 @@ const scoreQuiz = (questions) => {
 
 const findAttemptsForQuiz = (qid) => attemptModel.find({"quizId": qid})
 
-const createAttempt = (qid, attempt) => {
-
+const createAttempt = (qid, answerIds, attempt) => {
     attemptModel.create({
         quiz: qid,
-        answers: attempt,
+        answers: answerIds,
         score: scoreQuiz(attempt)
     });
 }

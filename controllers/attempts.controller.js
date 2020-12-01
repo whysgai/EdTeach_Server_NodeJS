@@ -12,6 +12,6 @@ module.exports = (app) => {
             .then(questions => res.send(questions));
     }
 
-    app.get('/api/quizzes/:qid/attempts', findAttemptsForQuiz);
-    app.post('/api/quizzes/:qid/attempts', createAttempt);
+    app.get('/quizzes/:qid/attempts', findAttemptsForQuiz);
+    app.post('/quizzes/:qid/attempts', createAttempt);
 }
