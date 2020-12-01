@@ -9,7 +9,7 @@ module.exports = (app) => {
 
     const createAttempt = (req, res) => {
         attemptService.createAttempt(req.params.qid, req.body)
-            .then(attempt => res.send(attempt));
+            .then(questions => res.send(questions));
     }
 
     app.get('/api/quizzes/:qid/attempts', findAttemptsForQuiz);

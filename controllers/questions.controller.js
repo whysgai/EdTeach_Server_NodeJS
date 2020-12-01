@@ -13,9 +13,14 @@ module.exports = (app) => {
         console.log("Controller FindAllQuestionsForQuiz", req.params.qid);
         questionService.findQuestionsForQuiz(req.params.qid)
             .then(questions => res.send(questions));
+    }
 
+    const createQuestion = (req, res) => {
+        questionService.createQuestion(req.body)
+            .then(question => res.send(question));
     }
 
     app.get("/questions", findAllQuestions);
     app.get("/quizzes/:qid/questions", findQuestionsForQuiz);
+    app.post("/questions", createQuestion);
 }
