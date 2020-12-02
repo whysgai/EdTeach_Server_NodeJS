@@ -3,6 +3,7 @@ const attemptService = require("../services/attempts.service");
 module.exports = (app) => {
 
     const findAttemptsForQuiz = (req, res) => {
+        console.log("Controller FindAttemptsForQuiz", req.params.qid)
         attemptService.findAttemptsForQuiz(req.params.qid)
             .then(attempts => res.send(attempts));
     }

@@ -7,6 +7,7 @@ const scoreQuiz = (attempt) => {
             countCorrect++;
         }
     })
+    console.log("Number right", countCorrect)
     return (countCorrect / attempt.length) * 100;
 }
 
@@ -20,8 +21,9 @@ const scoreQuiz = (attempt) => {
 const findAttemptsForQuiz = (qid) => attemptModel.find({"quizId": qid})
 
 const createAttempt = (qid, answerIds, attempt) => {
+    console.log("Creating attempt in DAO", "qid", qid, "answers", answerIds, "attempts", attempt)
     attemptModel.create({
-        quiz: qid,
+        quizId: qid,
         answers: answerIds,
         score: scoreQuiz(attempt)
     });

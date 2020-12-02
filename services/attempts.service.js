@@ -4,7 +4,7 @@ const questionService = require("../services/questions.service");
 
 const findAttemptsForQuiz = (qid) => attemptDao.findAttemptsForQuiz(qid);
 
-const createAttempt = (qid, answers) => {
+const createAttempt = async (qid, answers) => {
     console.log("create attempt dao")
     console.log("quiz id:", qid)
     console.log("answers", answers)
@@ -21,12 +21,13 @@ const createAttempt = (qid, answers) => {
             type: answer.type,
             choices: answer.choices
         }
-        let newQuestion = questionDao.createQuestion(question).then((result) => result)
+        let newQuestion = await questionDao.createQuestion(question)
         console.log("Created question", newQuestion)
-        let newAnswerId = newQuestion._id
+        let newAnswerId = newQuestion._id.toString()
         console.log("New ID for question " + answer.title + " is " + newAnswerId)
         answerIds.push(newAnswerId)
     }
+    console.log("Create attempt to DAO")
     attemptDao.createAttempt(qid, answerIds, answers)
 }
 
